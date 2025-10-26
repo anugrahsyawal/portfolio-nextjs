@@ -13,7 +13,7 @@ export default function HeroSection() {
         backgroundColor="transparent"
         rangeY={800}
         particleCount={200}
-        baseHue={264}
+        baseHue={240}
         className="w-full h-full flex items-center justify-center"
       >
         <div className="text-center z-20 px-6">

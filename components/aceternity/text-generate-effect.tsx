@@ -22,7 +22,7 @@ export const TextGenerateEffect: React.FC<TextGenerateEffectProps> = ({ words, c
       } else {
         clearInterval(interval)
       }
-    }, duration * 1000)
+    }, duration)
 
     return () => clearInterval(interval)
   }, [words, duration])
