@@ -45,11 +45,10 @@ const timelineEvents: TimelineEvent[] = [
 export default function TimelineSection() {
   return (
     <section className="relative w-full py-20 px-4 md:px-8 bg-slate-950">
-      <Tracer className="z-0" />
-
-      <div className="max-w-4xl mx-auto relative z-10">
-        {/* Section Title */}
-        <div className="mb-16 text-center">
+      <Tracer className="h-full">
+        <div className="max-w-4xl mx-auto relative z-10">
+          {/* Section Title */}
+          <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Perjalanan Saya</h2>
           <p className="text-slate-400 text-lg">Pengalaman dan Pendidikan</p>
         </div>
@@ -92,9 +91,10 @@ export default function TimelineSection() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
-      </div>
+      </Tracer>
     </section>
   )
 }
