@@ -67,8 +67,8 @@ const GlobeComponent = () => {
   return <OrbitControls autoRotate autoRotateSpeed={0.8} enableZoom={false} enableRotate={false} />;
 };
 
-export const Globe = () => (
-  <Canvas>
+export const Globe = ({ className }: { className?: string }) => (
+  <Canvas className={className}>
     <ambientLight color="#ffffff" intensity={0.5} />
     <directionalLight color="#ffffff" position={new Vector3(1, 1, 1)} intensity={0.8} />
     <GlobeComponent />

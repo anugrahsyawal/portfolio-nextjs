@@ -3,27 +3,43 @@
 import dynamic from "next/dynamic"
 import { TextGenerateEffect } from "@/components/aceternity/text-generate-effect"
 
+// 1. Impor 'dynamic'
 const DynamicGlobe = dynamic(
+  // 2. Pastikan 'mod.Globe' adalah nama ekspor yang benar dari globe.tsx
   () => import("@/components/aceternity/globe").then((mod) => mod.Globe),
   {
-    ssr: false,
+    ssr: false, // Wajib
     loading: () => (
-      <div className="absolute inset-0 z-10 flex items-center justify-center bg-transparent">
+      // 3. Loading state ini sekarang juga di-posisikan 'absolute'
+      <div className="absolute inset-0 z-0 flex items-center justify-center bg-slate-950">
         <p className="text-slate-400">Loading 3D Globe...</p>
       </div>
     ),
   }
-);
+)
 
 export default function HeroSection() {
   const subHeadline =
     "Saya merancang dan mengotomatisasi infrastruktur yang scalable (Proxmox, Ansible, ELK Stack), dengan pemahaman full-stack untuk memastikan performa aplikasi Anda (Next.js, Python)."
 
   return (
-    <section id="home" className="relative w-full h-screen pt-20 bg-slate-950">
-      <DynamicGlobe />
+    // 4. SECTION (Parent)
+    // - Ini adalah 'container' utama
+    // - 'h-screen' membatasi tingginya
+    // - 'relative' adalah jangkar untuk semua elemen 'absolute' di dalamnya
+    <section id="home" className="relative w-full h-screen bg-slate-950">
+
+      {/* LAPISAN 1: GLOBE (z-10) */}
+      {/* Ini sekarang diposisikan 'absolute' di dalam 'section' */}
+      <DynamicGlobe className="absolute inset-0 z-10" />
+
+      {/* LAPISAN 2: OVERLAY (z-15) */}
+      {/* Lapisan ini menggelapkan Globe agar teks kontras */}
       <div className="absolute inset-0 z-[15] bg-black/50 backdrop-blur-sm" />
-      <div className="relative w-full h-full flex items-center justify-center z-20">
+
+      {/* LAPISAN 3: KONTEN (z-20) */}
+      {/* Ini adalah lapisan teratas, juga 'absolute' */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center pt-20"> {/* pt-20 untuk memberi ruang Navbar */}
         <div className="text-center px-6">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 text-balance">
             System Administrator & Infrastructure Engineer
