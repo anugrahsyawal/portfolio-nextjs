@@ -2,6 +2,13 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
+import { TypewriterEffect } from "@/components/ui/typewriter-effect"
+import dynamic from "next/dynamic"
+
+const Spline = dynamic(() => import('@splinetool/react-spline'), {
+  ssr: false,
+})
 
 export function Hero() {
   return (
@@ -12,10 +19,20 @@ export function Hero() {
           <div className="flex flex-col gap-8">
             {/* Heading and Subheading */}
             <div>
-              <h1 className="text-6xl font-bold text-foreground mb-4">Anugrah Syawal.</h1>
-              <p className="text-xl text-muted-foreground">
-                Building Infrastructure (Terraform, Proxmox) and Applications (Next.js, React).
-              </p>
+              <TextGenerateEffect words="Anugrah Syawal." className="text-6xl font-bold" />
+              <TypewriterEffect
+                words={[
+                  { text: "Building" },
+                  { text: "Infrastructure" },
+                  { text: "(Terraform," },
+                  { text: "Proxmox)" },
+                  { text: "and" },
+                  { text: "Applications" },
+                  { text: "(Next.js," },
+                  { text: "React)." },
+                ]}
+                className="text-xl text-muted-foreground"
+              />
             </div>
 
             {/* Buttons */}
@@ -51,8 +68,8 @@ export function Hero() {
           </div>
 
           {/* Right Column: Placeholder for 3D Graphic */}
-          <div className="min-h-[400px] border border-dashed border-gray-700 rounded-lg flex items-center justify-center bg-foreground/5">
-            <span className="text-muted-foreground text-sm">Placeholder for 3D Graphic</span>
+          <div className="min-h-[400px] rounded-lg flex items-center justify-center">
+            <Spline scene="https://prod.spline.design/hO-L-c1y-Yk-2-E0/scene.splinecode" />
           </div>
         </div>
       </div>
