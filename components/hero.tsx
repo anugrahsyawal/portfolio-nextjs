@@ -23,6 +23,13 @@ export function Hero() {
           <div className="flex flex-col gap-8">
             {/* Heading and Subheading */}
             <div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="text-xs text-green-400">Available for collaboration</span>
+              </div>
               <TextGenerateEffect words="Anugrah Syawal." className="text-6xl font-bold" />
               <TypewriterEffect
                 words={[

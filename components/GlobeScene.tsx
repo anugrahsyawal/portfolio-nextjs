@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Suspense } from 'react'
+import React, { Suspense, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 // 1. Impor <Bounds>
 import { OrbitControls, useGLTF, Preload, Bounds } from '@react-three/drei'
@@ -15,6 +15,7 @@ function Model() {
 
 // Ini adalah Komponen Scene utama
 function GlobeScene() {
+  const controlsRef = useRef();
   return (
     <Canvas
       shadows
@@ -37,10 +38,13 @@ function GlobeScene() {
         
         {/* Kontrol untuk memutar model dengan mouse */}
         <OrbitControls
+          ref={controlsRef}
           autoRotate
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
+          onStart={() => { if (controlsRef.current) (controlsRef.current as any).autoRotate = false; }}
+          onEnd={() => { if (controlsRef.current) (controlsRef.current as any).autoRotate = true; }}
         />
         
         <Preload all />
