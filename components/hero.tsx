@@ -6,8 +6,12 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
 import { TypewriterEffect } from "@/components/ui/typewriter-effect"
 import dynamic from "next/dynamic"
 
-const Spline = dynamic(() => import('@splinetool/react-spline'), {
+// 1. UBAH DYNAMIC IMPORT:
+//    Kita ganti Spline dengan GlobeScene.
+//    Kita beri fallback loading agar tidak crash.
+const GlobeScene = dynamic(() => import('@/components/GlobeScene'), {
   ssr: false,
+  loading: () => <div className="h-[400px] w-full bg-foreground/5 rounded-lg flex items-center justify-center text-muted-foreground">Loading 3D Globe...</div>
 })
 
 export function Hero() {
@@ -22,14 +26,10 @@ export function Hero() {
               <TextGenerateEffect words="Anugrah Syawal." className="text-6xl font-bold" />
               <TypewriterEffect
                 words={[
-                  { text: "Building" },
-                  { text: "Infrastructure" },
-                  { text: "(Terraform," },
-                  { text: "Proxmox)" },
+                  { text: "Building Infrastructure" },
+                  { text: "Terraform, Ansible, Proxmox" },
                   { text: "and" },
-                  { text: "Applications" },
-                  { text: "(Next.js," },
-                  { text: "React)." },
+                  { text: "Applications (Next.js, Express.js)" },
                 ]}
                 className="text-xl text-muted-foreground"
               />
@@ -67,9 +67,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Placeholder for 3D Graphic */}
-          <div className="min-h-[400px] rounded-lg flex items-center justify-center">
-            <Spline scene="https://prod.spline.design/hO-L-c1y-Yk-2-E0/scene.splinecode" />
+          {/* Right Column: 3D Graphic */}
+          <div className="h-full min-h-[640px] rounded-lg flex items-stretch justify-center">
+            <GlobeScene />
           </div>
         </div>
       </div>
