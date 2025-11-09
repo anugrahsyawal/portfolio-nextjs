@@ -1,0 +1,51 @@
+# File ini memberitahu Git file mana yang harus diabaikan.
+
+# Ketergantungan (Dependencies)
+# Abaikan folder instalasi modul
+/node_modules
+/.pnpm-store
+
+# Log
+# Abaikan file log, seringkali berisi informasi sensitif
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# File environment lokal
+# File ini berisi API keys dan rahasia database. JANGAN PERNAH di-commit.
+.env.local
+.env.*.local
+.env
+
+# Build Artifacts
+# Folder build Next.js. Ini harus di-generate di server, bukan di-commit.
+/.next/
+/out/
+
+# File cache Next.js
+.next.lock
+
+# Cache build (misalnya dari Vercel)
+.vercel
+
+# File sistem operasi (OS)
+# File metadata macOS dan Windows yang mengganggu
+.DS_Store
+Thumbs.db
+
+# Folder IDE
+# Abaikan folder pengaturan editor kode
+.vscode/
+.idea/
+
+# File TypeScript
+# Abaikan file build TypeScript sementara
+*.tsbuildinfo
+next-env.d.ts
+
+# Lain-lain
+# File konfigurasi sementara atau cache
+.eslintcache
+.swc/
