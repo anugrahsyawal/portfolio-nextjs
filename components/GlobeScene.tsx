@@ -15,7 +15,7 @@ function Model() {
 
 // Ini adalah Komponen Scene utama
 function GlobeScene() {
-  const controlsRef = useRef();
+  const controlsRef = useRef<any>(null);
   return (
     <Canvas
       shadows
@@ -39,7 +39,8 @@ function GlobeScene() {
         {/* Kontrol untuk memutar model dengan mouse */}
         <OrbitControls
           ref={controlsRef}
-          autoRotate
+          autoRotate={true}
+          autoRotateSpeed={0.5}
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}

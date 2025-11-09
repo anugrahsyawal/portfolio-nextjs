@@ -38,7 +38,7 @@ export function Hero() {
                   { text: "and" },
                   { text: "Applications (Next.js, Express.js)" },
                 ]}
-                className="text-xl text-muted-foreground"
+                className="text-xl text-muted-foreground mt-4"
               />
             </div>
 
