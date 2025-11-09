@@ -8,6 +8,7 @@ import dynamic from "next/dynamic"
 
 const Spline = dynamic(() => import('@splinetool/react-spline'), {
   ssr: false,
+  loading: () => <div>Loading 3D asset...</div>,
 })
 
 export function Hero() {
