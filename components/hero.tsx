@@ -16,7 +16,7 @@ const GlobeScene = dynamic(() => import('@/components/GlobeScene'), {
 
 export function Hero() {
   return (
-    <section className="min-h-[calc(100vh-80px)] flex items-center bg-background overflow-hidden py-24">
+    <section className="min-h-[calc(100vh-80px)] flex items-center bg-background overflow-hidden py-8">
       <div className="max-w-7xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column: Text Content */}
@@ -33,10 +33,8 @@ export function Hero() {
               <TextGenerateEffect words="Anugrah Syawal." className="text-6xl font-bold" />
               <TypewriterEffect
                 words={[
-                  { text: "Building Infrastructure" },
-                  { text: "Terraform, Ansible, Proxmox" },
-                  { text: "and" },
-                  { text: "Applications (Next.js, Express.js)" },
+                  { text: "Infrastructure & DevOps (Terraform, Proxmox)" },
+                  { text: "Fullstack Development (Next.js, Express.js)" },
                 ]}
                 className="text-xl text-muted-foreground mt-4"
               />
@@ -61,8 +59,30 @@ export function Hero() {
             </p>
 
             {/* Skill Badges */}
+            {/* Skill Badges */}
             <div className="flex flex-wrap gap-2">
-              {["Proxmox", "Terraform", "Ansible", "ELK Stack", "React", "Next.js"].map((skill) => (
+              {[
+                // Kategori: DevOps / Automasi
+                "Terraform",
+                "Ansible",
+                "Python",
+                
+                // Kategori: Infrastruktur / Virtualisasi
+                "Proxmox",
+                "Linux",
+                
+                // Kategori: Monitoring
+                // "ELK Stack",
+                "Prometheus",
+                
+                // Kategori: Cloud
+                // "AWS",
+
+                // Kategori: Fullstack Development
+                // "React",
+                "Next.js",
+                "Express.js"
+              ].map((skill) => (
                 <Badge
                   key={skill}
                   variant="secondary"
