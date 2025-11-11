@@ -5,6 +5,7 @@ import { Hero } from "@/components/hero"
 import { Footer } from "@/components/footer"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { BackgroundGradient } from "@/components/ui/background-gradient"
 
 const projects = [
  {
@@ -58,7 +59,12 @@ export default function Home() {
 
  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
  {projects.map((project) => (
- <Card key={project.id} className={project.gridColumn}>
+ <BackgroundGradient
+ key={project.id}
+ containerClassName="rounded-lg"
+ className={`${project.gridColumn} rounded-lg`}
+ >
+ <Card className="h-full bg-foreground/5 hover:bg-foreground/10 border-foreground/10 transition-transform hover:scale-[1.03]">
  <CardHeader>
  <CardTitle className="text-lg">{project.title}</CardTitle>
  </CardHeader>
@@ -72,6 +78,7 @@ export default function Home() {
  </Badge>
  ))}</CardFooter>
  </Card>
+ </BackgroundGradient>
  ))}</div>
  </div>
  </section>
