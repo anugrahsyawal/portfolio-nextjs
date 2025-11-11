@@ -70,9 +70,9 @@ export default function Home() {
  <Badge key={tag} variant="secondary">
  {tag}
  </Badge>
- ))}\n </CardFooter>
+ ))}</CardFooter>
  </Card>
- ))}\n </div>
+ ))}</div>
  </div>
  </section>
 
