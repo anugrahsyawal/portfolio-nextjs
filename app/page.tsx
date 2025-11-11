@@ -52,27 +52,43 @@ export default function Home() {
  <Navbar />
  <Hero />
 
- <section id="projects" className="py-24">
+ <section id="projects" className="py-24 relative">
  <div className="max-w-7xl mx-auto px-4">
  <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
 
- <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
  {projects.map((project) => (
- <Card key={project.id} className={project.gridColumn}>
+ <div key={project.id} className={`${project.gridColumn} relative group`}>
+ {/* Glow effect background */}
+ <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+ {/* Card with enhanced hover effects */}
+ <Card className="relative h-full backdrop-blur-sm border-emerald-500/20 hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all duration-300 transform group-hover:scale-105 group-hover:-translate-y-1">
  <CardHeader>
- <CardTitle className="text-lg">{project.title}</CardTitle>
+ <CardTitle className="text-lg text-foreground group-hover:text-emerald-400 transition-colors duration-300">
+ {project.title}
+ </CardTitle>
  </CardHeader>
  <CardContent>
- <CardDescription>{project.description}</CardDescription>
+ <CardDescription className="group-hover:text-foreground/80 transition-colors duration-300">
+ {project.description}
+ </CardDescription>
  </CardContent>
  <CardFooter className="flex flex-wrap gap-2 pt-4">
  {project.tags.map((tag) => (
- <Badge key={tag} variant="secondary">
+ <Badge
+ key={tag}
+ variant="secondary"
+ className="hover:bg-emerald-500/30 hover:text-emerald-300 transition-all duration-300"
+ >
  {tag}
  </Badge>
- ))}</CardFooter>
+ ))}
+ </CardFooter>
  </Card>
- ))}</div>
+ </div>
+ ))}
+ </div>
  </div>
  </section>
 
