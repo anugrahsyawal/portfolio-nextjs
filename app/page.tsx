@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { Mail, Linkedin, Github, ExternalLink, CheckCircle2, Award, Users } from "lucide-react"
+import { Mail, Linkedin, Github, ExternalLink, CheckCircle2, Award, Users, Link } from "lucide-react"
 
 
 const projects = [
@@ -274,27 +274,29 @@ export default function Home() {
                 <Card className="relative bg-gradient-to-br from-background to-foreground/5 border-emerald-500/20 hover:border-emerald-500/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]">
                   <CardHeader>
                     <CardTitle className="text-lg flex items-center gap-2 text-emerald-400">
-                      <Linkedin className="w-5 h-5" />
+                      <Link className="w-5 h-5" />
                       Social Links
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-2">
-                    <a
-                      href="#"
-                      className="flex items-center gap-2 text-foreground hover:text-emerald-400 transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                      <span>GitHub</span>
-                      <ExternalLink className="w-3 h-3 ml-auto" />
-                    </a>
-                    <a
-                      href="#"
-                      className="flex items-center gap-2 text-foreground hover:text-emerald-400 transition-colors"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                      <span>LinkedIn</span>
-                      <ExternalLink className="w-3 h-3 ml-auto" />
-                    </a>
+                  <CardContent className="space-y-4 mt-4">
+ <a
+ href='https://github.com/kyunedev'
+ target='_blank'
+ rel='noopener noreferrer'
+ className='flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors'
+ >
+ <Github className='h-5 w-5' />
+ <span>kyunedev (GitHub)</span>
+ </a>
+ <a
+ href='https://linkedin.com/in/anugrahsyawal/'
+ target='_blank'
+ rel='noopener noreferrer'
+ className='flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors'
+ >
+ <Linkedin className='h-5 w-5' />
+ <span>anugrahsyawal (LinkedIn)</span>
+ </a>
                   </CardContent>
                 </Card>
               </div>
