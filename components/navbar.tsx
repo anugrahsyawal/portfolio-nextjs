@@ -22,16 +22,17 @@ export function Navbar() {
               Projects
             </Link>
             <Link href="#about" className="text-foreground/80 hover:text-foreground transition-colors">
-              About
+              About Me
             </Link>
           </div>
 
           {/* Right: CTA Button */}
           <Button
+            asChild
             variant="outline"
             className="border-foreground/30 text-foreground hover:bg-foreground/10 bg-transparent"
           >
-            Get in touch
+            <Link href="#contact">Get in touch</Link>
           </Button>
         </div>
       </div>
