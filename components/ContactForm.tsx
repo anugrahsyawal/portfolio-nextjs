@@ -13,37 +13,41 @@ export function ContactForm() {
  const [message, setMessage] = useState('');
  const [isLoading, setIsLoading] = useState(false);
 
- const handleSubmit = async (e: React.FormEvent) => {
- e.preventDefault();
- setIsLoading(true);
- toast.loading('Sending message...');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
 
- try {
- const response = await fetch('/api/send', {
- method: 'POST',
- headers: {
- 'Content-Type': 'application/json',
- },
- body: JSON.stringify({ name, email, message }),
- });
+    // 1. Tangkap ID toast di sini
+    const toastId = toast.loading('Sending message...');
 
- const result = await response.json();
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
 
- if (response.ok) {
- toast.success('Message sent successfully!');
- setName('');
- setEmail('');
- setMessage('');
- } else {
- throw new Error(result.error || 'Failed to send message.');
- }
- } catch (error) {
- const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
- toast.error(errorMessage);
- } finally {
- setIsLoading(false);
- }
- };
+      const result = await response.json();
+
+      if (response.ok) {
+        // 2. Perbarui toast SUKSES menggunakan ID
+        toast.success('Message sent successfully!', { id: toastId });
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        throw new Error(result.error || 'Failed to send message.');
+      }
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+      // 3. Perbarui toast ERROR menggunakan ID
+      toast.error(errorMessage, { id: toastId });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
  return (
  <Card className='bg-background p-6'>
