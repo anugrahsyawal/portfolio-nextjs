@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Footer } from "@/components/footer"
+import { ContactForm } from '@/components/ContactForm'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -300,50 +301,7 @@ export default function Home() {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              <Card className="relative bg-gradient-to-br from-background to-foreground/5 border-emerald-500/20 hover:border-emerald-500/50 backdrop-blur-sm transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-                <CardHeader>
-                  <CardTitle className="text-lg text-emerald-400">Send Me a Message</CardTitle>
-                  <CardDescription>Saya akan merespon secepat mungkin</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Your Name</Label>
-                      <Input
-                        id="name"
-                        placeholder="Nama Anda"
-                        className="bg-foreground/5 border-foreground/20 focus:border-emerald-500 focus:bg-foreground/10 focus:ring-emerald-500/30 transition-all"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Your Email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="email@example.com"
-                        className="bg-foreground/5 border-foreground/20 focus:border-emerald-500 focus:bg-foreground/10 focus:ring-emerald-500/30 transition-all"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Your Message</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tulis pesan Anda di sini..."
-                        className="bg-foreground/5 border-foreground/20 focus:border-emerald-500 focus:bg-foreground/10 focus:ring-emerald-500/30 transition-all min-h-32"
-                      />
-                    </div>
-
-                    <Button className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]">
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>

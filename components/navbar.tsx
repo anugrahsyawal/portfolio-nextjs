@@ -24,9 +24,6 @@ export function Navbar() {
             <Link href="#about" className="text-foreground/80 hover:text-foreground transition-colors">
               About
             </Link>
-            <Link href="#contact" className="text-foreground/80 hover:text-foreground transition-colors">
-              Contact
-            </Link>
           </div>
 
           {/* Right: CTA Button */}
